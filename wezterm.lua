@@ -1,14 +1,18 @@
 local wezterm = require 'wezterm'
 local config = {}
 
-config.default_domain = 'WSL:Ubuntu-20.04'
+config.default_domain = 'WSL:Retina-24.04'
+-- config.default_domain = 'WSL:Ubuntu-24.04'
 config.color_scheme = 'Afterglow'
-
 local act = wezterm.action
 
+config.set_environment_variables = {
+        WEZTERM_SPAWN_NEW_INSTANCE_IN_CWD = "true",
+    }
+
 config.keys = {
-    { key = 'h', mods = 'ALT', action = act.ActivateTabRelative(1) },
-    { key = 'l', mods = 'ALT', action = act.ActivateTabRelative(-1) },
+    -- { key = 'h', mods = 'ALT', action = act.ActivateTabRelative(1) },
+    -- { key = 'l', mods = 'ALT', action = act.ActivateTabRelative(-1) },
     { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
     { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
     { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen },
@@ -228,7 +232,7 @@ config.key_tables = {
       { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'NextMatch' },
     },
   }
-
+config.audible_bell = "Disabled"
 return config
 
 
